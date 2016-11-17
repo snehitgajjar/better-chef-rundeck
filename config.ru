@@ -17,10 +17,12 @@ default_chef_configs = ['~/.chef/knife.rb', '/etc/chef/client.rb']
 default_chef_configs.each do |c|
   if File.exist?(File.expand_path(c))
     defaults[:chef_config] = c
+    puts "======#{defaults[:chef_config]}===="
     break
   end
 end
 
+puts "=======#{App.settings.chef_config}==="
 # configure the app settings from defaults hash (defaults and env vars)
 App.configure do
   # environment variables override default values
