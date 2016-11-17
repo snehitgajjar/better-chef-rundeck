@@ -16,6 +16,8 @@ defaults = {
 default_chef_configs = ['~/.chef/knife.rb', '/etc/chef/client.rb']
 default_chef_configs.each do |c|
   puts "out ======#{c}===="
+  puts "out ======#{File.expand_path(c)}===="
+  puts "out ======#{File.exist?(File.expand_path(c))}====||=======#{File.exist?(c)}"
   if File.exist?(File.expand_path(c))
     defaults[:chef_config] = c
     puts "======#{defaults[:chef_config]}===="
